@@ -21,8 +21,8 @@ public class Main{
     todo: make todo list
      */
 
-    static String startLang = "english";
-    static String LanguageTo = "espanol";
+    static String startLang = "espanol";
+    static String LanguageTo = "english";
 
 
     public static void main(String[] args) throws IOException {

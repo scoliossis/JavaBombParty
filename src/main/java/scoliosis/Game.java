@@ -44,7 +44,7 @@ public class Game {
 
     static String randomWord;
 
-    static int numberOccurancesMinimum = 50000;
+    static int numberOccurancesMinimum = 5000;
 
 
     public static void game(BufferedImage bi, BufferStrategy bs) throws IOException {
@@ -91,6 +91,11 @@ public class Game {
             RenderLib.drawString(g, new DecimalFormat("#.###").format(timespent), 15, 75, 13, "Comic Sans MS", 0, new Color(0, 0, 0));
 
             if (timespent > 10) {
+                String websitetext = ReadWebsite("https://translate.google.com/m?sl="+startLang.substring(0,2)+"&tl="+LanguageTo.substring(0,2)+"&hl="+startLang.substring(0,2)+"&q=" + randomWord, "hichat");
+                String[] splittedWebsite = websitetext.split(">");
+                String translatedWordStart = splittedWebsite[43];
+                translatedWord = fixFormat(translatedWordStart.substring(0, translatedWordStart.indexOf("</div")));
+
                 time = System.currentTimeMillis();
                 usedWords.add(randomWord);
                 wordFailed = true;
